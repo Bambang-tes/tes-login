@@ -2,6 +2,9 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <span v-google-signin-button="clientId" class="google-signin-button button btn">  
+    
+                                 <GoogleButton />
+    
     <img
         class="icon"
         src="https://developers-dot-devsite-v2-prod.appspot.com/identity/sign-in/g-normal.png"
@@ -13,19 +16,23 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import GoogleSignInButton from 'vue-google-signin-button-directive'
+import GoogleButton from '@/components/GoogleButton/GoogleButton.vue';
+
 export default {
+  components: {
+    GoogleButton,
+  },
   name: 'App',
   directives: {
-    GoogleSignInButton
+    GoogleSignInButton,
+    HelloWorld
+
   },
   data() {
     return {
       clientId: '634872920355-ubl5dsf4r4l8anlpthpbui32g5n080ts.apps.googleusercontent.com',
 
     }
-  },
-  components: {
-    HelloWorld
   },
   methods: {
     OnGoogleAuthSuccess (idToken) {
